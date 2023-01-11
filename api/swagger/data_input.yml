@@ -1,0 +1,80 @@
+openapi: 3.0.0
+tags:
+  - calculate_price
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      id: ListingData
+      required:
+        - id
+        - accommodates
+        - room_type
+        - beds
+        - bedrooms
+        - bathrooms
+        - neighbourhood
+        - tv
+        - elevator
+        - internet
+        - latitude
+        - longitude
+      properties:
+        id:
+          type: integer
+          description: Listing ID
+          example: 1001
+        accommodates:
+          type: integer
+          example: 4
+        room_type:
+          type: string
+          example: Entire home/apt
+        beds:
+          type: integer
+          example: 2
+        bedrooms:
+          type: integer
+          example: 1
+        bathrooms:
+          type: integer
+          example: 2
+        neighbourhood:
+          type: string
+          example: Brooklyn
+        tv:
+          type: integer
+          example: 1
+        elevator:
+          type: integer
+          example: 1
+        internet:
+          type: integer
+          example: 0
+        latitude:
+          type: number
+          example: 40.71383
+        longitude:
+          type: number
+          example: -73.9658
+responses:
+  200:
+    description: Prediction OK
+    schema:
+      id: ResponseModel
+      required:
+        - id
+        - price_category
+      properties:
+        id:
+          type: integer
+          description: Listing ID
+          example: 1001
+        price_category:
+          type: string
+          example: High
+  400:
+    description: Bad Request
+  500:
+    description: Internal Server Error
