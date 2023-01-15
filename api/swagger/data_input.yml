@@ -23,40 +23,78 @@ parameters:
       properties:
         id:
           type: integer
+          allowEmptyValue: false
+          nullable: false
           description: Listing ID
           example: 1001
         accommodates:
           type: integer
+          allowEmptyValue: false
+          nullable: false
+          minimum: 0
           example: 4
         room_type:
           type: string
+          enum:
+          - Entire home/apt
+          - Private room
+          - Shared room
+          - Hotel room
           example: Entire home/apt
         beds:
           type: integer
+          allowEmptyValue: false
+          nullable: false
+          minimum: 1
           example: 2
         bedrooms:
           type: integer
+          allowEmptyValue: false
+          nullable: false
+          minimum: 1
           example: 1
         bathrooms:
-          type: integer
-          example: 2
+          type: number
+          allowEmptyValue: false
+          nullable: false
+          minimum: 0
+          example: 1.5
         neighbourhood:
           type: string
+          enum:
+          - Manhattan
+          - Brooklyn
+          - Queens
+          - Bronx
+          - Staten Island
           example: Brooklyn
         tv:
           type: integer
+          enum:
+          - 0
+          - 1
           example: 1
         elevator:
           type: integer
+          enum:
+          - 0
+          - 1
           example: 1
         internet:
           type: integer
+          enum:
+          - 0
+          - 1
           example: 0
         latitude:
           type: number
+          allowEmptyValue: false
+          nullable: false
           example: 40.71383
         longitude:
           type: number
+          allowEmptyValue: false
+          nullable: false
           example: -73.9658
 responses:
   200:
