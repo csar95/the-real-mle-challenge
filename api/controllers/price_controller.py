@@ -1,4 +1,3 @@
-from flask import jsonify
 import pandas as pd
 from catboost import CatBoostClassifier
 
@@ -22,4 +21,4 @@ def calculate_price(body):
 
     price_classes = {0:'Low',1:'Mid',2:'High',3:'Luxury'}
 
-    return jsonify({'id':body['id'], 'price_category':price_classes[price_class]})
+    return {'id':body['id'], 'price_category':price_classes[price_class]}
